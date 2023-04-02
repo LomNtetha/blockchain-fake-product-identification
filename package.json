@@ -12,7 +12,9 @@
     "lite-server": "2.6"
   },
   "dependencies": {
-    "@truffle/hdwallet-provider": "^2.0.15",
-    "cors": "^2.8.5"
+    "@truffle/hdwallet-provider": "^1.7.0",
+    "cors": "^2.8.5",
+    "psl": "^1.9.0",
+    "truffle": "^5.1.65"
   }
 }

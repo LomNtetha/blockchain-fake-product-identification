@@ -47,23 +47,25 @@ App = {
             }
 
             var account=accounts[0];
-            // console.log(account);
+            console.log(account);
             App.contracts.product.deployed().then(function(instance){
 
                 productInstance=instance;
                 return productInstance.verifyProduct(web3.fromAscii(productSN), web3.fromAscii(consumerCode),{from:account});
 
             }).then(function(result){
+
+                console.log("here is the results");
                 
-                // console.log(result);
+                 console.log(result);
 
                 var t= "";
 
                 var tr="<tr>";
                 if(result){
-                    tr+="<td>"+ "Genuine Product."+"</td>";
+                    tr+="<td>"+ "This Product is not recoginized"+"</td>";
                 }else{
-                    tr+="<td>"+ "Fake Product."+"</td>";
+                    tr+="<td>"+ "Genuine Product."+"</td>";
                 }
                 tr+="</tr>";
                 t+=tr;
