@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
+
 	</head>
 	<body>
 	<section class="ftco-section">
@@ -38,12 +39,36 @@
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span> Menu
 	      </button>
+		  <div class="card-body" id="getResult"></div>
+						<div class="card-body" id="getResult1"></div>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
+			
 	        <ul class="navbar-nav m-auto">
+
 	        	<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-			  	<li class="nav-item "><a href="manufacturer.html" class="nav-link">Manufacturer</a></li>
-	        	<li class="nav-item"><a href="seller.html" class="nav-link">Seller</a></li>
-	          	<li class="nav-item"><a href="consumer.html" class="nav-link">Consumer</a></li>
+				<!-- <li class="nav-link btn btn-primary" onclick="getManufactureData()" class="nav-item"><a href="manufacturer.html" >Manufacturer</a></li> -->
+				<li class="nav-item">
+					<a href="manufacturer.html" class="nav-link btn btn-black"
+					   onclick="event.preventDefault(); getManufactureData(); window.location.href=this.href;">
+					  Manufacturer
+					</a>
+				  </li>
+
+				  <li class="nav-item">
+					<a href="seller.html" class="nav-link btn btn-black"
+					   onclick="event.preventDefault(); getSellerData(); window.location.href=this.href;">
+					   Seller
+					</a>
+				  </li>
+
+				  <li class="nav-item">
+					<a href="consumer.html" class="nav-link btn btn-black"
+					   onclick="event.preventDefault(); getConsumerData(); window.location.href=this.href;">
+					   Consumer
+					</a>
+				</li>
+				<li class="nav-link btn btn-dark" onclick="" class="nav-item"><a href="signin.html" >Signin/signup</a></li>
+
 	        </ul>
 	      </div>
 	    </div>
@@ -59,9 +84,9 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<a class="navbar-brand" href="index.html">WELCOME </a>
-						<div class="card-body" id="getResult"></div>
-						<div class="card-body" id="getResult1"></div>
+						
 					</div>
+					
 					
 					<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
 						<form action="#" class="searchform order-lg-last">
@@ -75,11 +100,57 @@
 				
 		</div>
 	</div>
-	</section> 
 
+	
+	<div class="card mt-3">
+        <div class="card-header">Access Data user</div>
+        <div class="card-body">
+          <button class="btn btn-primary" onclick="getUserData()">Get Data</button>
+          <button class="btn btn-warning" onclick="clearOutput2()">
+            Clear
+          </button>
+        </div>
+        <div class="card-body" id="getResult2"></div>
+      </div>
+
+    
+      <div class="card mt-3">
+        <div class="card-header">Access Data Seller</div>
+        <div class="card-body">
+          <button class="btn btn-primary" onclick="getSellerData()">Get Data</button>
+          <button class="btn btn-warning" onclick="clearOutput2()">
+            Clear
+          </button>
+        </div>
+        <div class="card-body" id="getResult3"></div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-header">Access Data for Manufacture</div>
+        <div class="card-body">
+          <button class="btn btn-primary" onclick="getManufactureData()">Get Data</button>
+          <button class="btn btn-warning" onclick="clearOutput2()">
+            Clear
+          </button>
+        </div>
+        <div class="card-body" id="getResult5"></div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-header">Access Data Consumer</div>
+         <div class="card-body">
+          <button class="btn btn-primary" onclick="getConsumerData()">Get Data</button>
+          <button class="btn btn-warning" onclick="clearOutput2()">
+            Clear
+          </button>
+        </div>
+        <div class="card-body" id="getResult4"></div>
+      </div>
+	</section> 
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/IAM-main.js"></script>
 	<script src="js/web3.min.js"></script>
 	<script src="js/truffle-contract.js"></script>
  

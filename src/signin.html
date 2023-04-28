@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Axios Interceptors - Refresh Token</title>
+    <title>Fake-Product-signin - IAM</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -25,7 +25,7 @@
       </div> -->
 
       <div class="card mt-3">
-        <div class="card-header">Get Tokens</div>
+        <div class="card-header">Signin Form</div>
         <div class="card-body">
           <form id="loginForm">
             <div class="form-group">
@@ -36,62 +36,23 @@
               <label for="password">Password</label>
               <input type="password" class="form-control" id="password" placeholder="Enter your password">
             </div>
+            <label for="password">Do not Have Account? <a href="signup.html" class="nav-link">Click Here to create</a></label>
+            <div class="form-group"></div>
             <button type="submit" class="btn btn-primary">Login</button>
-            <button type="button" class="btn btn-warning" onclick="clearOutput1()">Clear</button>
+          </div>
+            <!-- <button type="button" class="btn btn-warning" onclick="clearOutput1()">Clear</button> -->
           </form>
         </div>
-        <div class="card-body" id="getResult1"></div>
+        <!-- <div class="card-body" id="getResult1"></div> -->
       </div>
       
 
-      <div class="card mt-3">
-        <div class="card-header">Access Data user</div>
-        <div class="card-body">
-          <button class="btn btn-primary" onclick="getUserData()">Get Data</button>
-          <button class="btn btn-warning" onclick="clearOutput2()">
-            Clear
-          </button>
-        </div>
-        <div class="card-body" id="getResult2"></div>
-      </div>
-
-    
-      <div class="card mt-3">
-        <div class="card-header">Access Data Seller</div>
-        <div class="card-body">
-          <button class="btn btn-primary" onclick="getSellerData()">Get Data</button>
-          <button class="btn btn-warning" onclick="clearOutput2()">
-            Clear
-          </button>
-        </div>
-        <div class="card-body" id="getResult3"></div>
-      </div>
-      <div class="card mt-3">
-        <div class="card-header">Access Data for Manufacture</div>
-        <div class="card-body">
-          <button class="btn btn-primary" onclick="getManufactureData()">Get Data</button>
-          <button class="btn btn-warning" onclick="clearOutput2()">
-            Clear
-          </button>
-        </div>
-        <div class="card-body" id="getResult5"></div>
-      </div>
-      <div class="card mt-3">
-        <div class="card-header">Access Data Consumer</div>
-        <div class="card-body">
-          <button class="btn btn-primary" onclick="getConsumerData()">Get Data</button>
-          <button class="btn btn-warning" onclick="clearOutput2()">
-            Clear
-          </button>
-        </div>
-        <div class="card-body" id="getResult4"></div>
-      </div>
 
     
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <script src="main.js"></script>
+    <script src="js/IAM-signin.js"></script>
   </body>
 </html>

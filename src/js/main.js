@@ -48,14 +48,14 @@
 //   resultElement.innerHTML =
 // 	"<pre>" + JSON.stringify({ accessToken, refreshToken }, null, 2) + "</pre>";
   
-const accessToken = window.localStorage.getItem("accessToken");
-const refreshToken = window.localStorage.getItem("refreshToken");
+// const accessToken = window.localStorage.getItem("accessToken");
+// const refreshToken = window.localStorage.getItem("refreshToken");
 
-if (!accessToken || !refreshToken) {
-  // redirect to signin page
-  window.location.href = "signin.html";
-}
+// if (!accessToken || !refreshToken) {
+//   // redirect to signin page
+//   window.location.href = "signin.html";
+// }
 
-const resultElement = document.getElementById("getResult");
-resultElement.innerHTML =
-  "<pre>" + JSON.stringify({ accessToken, refreshToken }, null, 2) + "</pre>";
+// const resultElement = document.getElementById("getResult");
+// resultElement.innerHTML =
+//   "<pre>" + JSON.stringify({ accessToken, refreshToken }, null, 2) + "</pre>";

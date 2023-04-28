@@ -1,3 +1,4 @@
+
 function getLocalAccessToken() {
     const accessToken = window.localStorage.getItem("accessToken");
     return accessToken;
@@ -64,14 +65,60 @@ function getLocalAccessToken() {
       return Promise.reject(err);
     }
   );
+
+
   
-  // function signin() {
+  
+  
+
+
+  // async function signin(username, password) {
   //   return instance.post("/auth/signin", {
-  //     username: "50899604",
-  //     password: "12345",
+  //     username: username,
+  //     password: password,
   //   });
   // }
+  
+  // async function login() {
+  //   var resultElement = document.getElementById("getResult1");
+  //   resultElement.innerHTML = "";
+  
+  //   try {
+  //     const username = document.getElementById("username").value;
+  //     const password = document.getElementById("password").value;
+  
+  //     const res = await signin(username, password);
+  
+  //     const { accessToken, refreshToken } = res.data;
+  //     window.localStorage.setItem("accessToken", accessToken);
+  //     window.localStorage.setItem("refreshToken", refreshToken);
 
+  //     if (!accessToken || !refreshToken) {
+  //       // redirect to signin page
+  //       window.location.href = "signin.html";
+  //     }
+
+  //         // redirect to index page
+  // //   window.location.replace("index.html");
+  // // } catch (err) {
+  // //   resultElement.innerHTML = err;
+  // // }
+  
+  //     resultElement.innerHTML =
+  //       "<pre>" +
+  //       JSON.stringify({ accessToken, refreshToken }, null, 2) +
+  //       "</pre>";
+  //   } catch (err) {
+  //     resultElement.innerHTML = err;
+  //   }
+  // }
+
+
+  // const loginForm = document.getElementById("loginForm");
+  // loginForm.addEventListener("submit", (event) => {
+  //   event.preventDefault();
+  //   login();
+  // });
   async function signin(username, password) {
     return instance.post("/auth/signin", {
       username: username,
@@ -81,7 +128,7 @@ function getLocalAccessToken() {
   
   async function login() {
     var resultElement = document.getElementById("getResult1");
-    resultElement.innerHTML = "";
+    //resultElement.innerHTML = "";
   
     try {
       const username = document.getElementById("username").value;
@@ -89,23 +136,32 @@ function getLocalAccessToken() {
   
       const res = await signin(username, password);
   
-      const { accessToken, refreshToken } = res.data;
+      const { accessToken, refreshToken, roles } = res.data;
       window.localStorage.setItem("accessToken", accessToken);
       window.localStorage.setItem("refreshToken", refreshToken);
-
-          // redirect to index page
-    window.location.replace("index.html");
-  } catch (err) {
-    resultElement.innerHTML = err;
-  }
+      window.localStorage.setItem("roles", JSON.stringify(roles));
   
-    //   resultElement.innerHTML =
-    //     "<pre>" +
-    //     JSON.stringify({ accessToken, refreshToken }, null, 2) +
-    //     "</pre>";
-    // } catch (err) {
-    //   resultElement.innerHTML = err;
-    // }
+      if (!accessToken || !refreshToken || !roles) {
+        // redirect to signin page
+        window.location.href = "signin.html";
+      } else {
+        // redirect based on role
+        const userRoles = JSON.parse(window.localStorage.getItem("roles"));
+        if (userRoles.includes("ROLE_USER")) {
+          window.location.href = "user.html";
+        } else if (userRoles.includes("ROLE_SELLER")) {
+          window.location.href = "seller.html";
+        } else if (userRoles.includes("ROLE_CONSUMER")) {
+          window.location.href = "consumer.html";
+        } else if (userRoles.includes("ROLE_MANUFACTURE")) {
+          window.location.href = "manufacturer.html";
+        } else {
+          window.location.href = "signin.html";
+        }
+      }
+    } catch (err) {
+      resultElement.innerHTML = err;
+    }
   }
   
   const loginForm = document.getElementById("loginForm");
@@ -113,7 +169,7 @@ function getLocalAccessToken() {
     event.preventDefault();
     login();
   });
-
+  
 
   function refreshToken() {
     return instance.post("/auth/refreshtoken", {
